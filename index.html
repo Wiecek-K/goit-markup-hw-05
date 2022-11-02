@@ -59,7 +59,9 @@
       <div class="main-panel flex">
         <div class="container">
           <h1>EFEKTYWNE ROZWIĄZANIA DLA WASZEGO BIZNESU</h1>
-          <button type="button" class="main-button">Zamów usługe</button>
+          <button type="button" class="main-button" data-modal-open>
+            Zamów usługe
+          </button>
         </div>
       </div>
 
@@ -450,5 +452,15 @@
         </ul>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button type="button" class="icon-close-bnt" data-modal-close>
+          <svg width="11" height="11">
+            <use href="./images/icons.svg#icon-cls-bnt "></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
