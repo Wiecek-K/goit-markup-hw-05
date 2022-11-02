@@ -91,6 +91,8 @@ body {
   font-size: 14px;
   display: inline-block;
   align-self: center;
+  transition: fill 0.25s, color 0.25s;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
 }
 
 .contact-mp svg {
@@ -100,17 +102,33 @@ body {
   margin-bottom: 2px;
 }
 
-.header-menu:hover,
-.header-menu:focus,
+.header-menu a:hover,
+.header-menu a:focus,
 .contact-mp:focus svg,
 .contact-mp:hover svg,
 .contact-mp:hover {
   color: var(--brand-color);
   fill: var(--brand-color);
 }
-.header-menu .actually-page {
-  color: var(--brand-color);
+.contact-mp,
+.contact-mp svg {
+  transition: fill 0.25s, color 0.25s;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
 }
+.actually-page {
+  position: relative;
+}
+.actually-page::after {
+  content: "";
+  width: 100%;
+  background-color: var(--brand-color);
+  height: 4px;
+  border-radius: 2px;
+  display: block;
+  position: relative;
+  top: 30px;
+}
+
 .header-contacts a {
   color: var(--weak-color);
   font-weight: 500;
@@ -210,6 +228,30 @@ body {
 .image-list {
   justify-content: space-around;
 }
+.image-list_div {
+  position: relative;
+}
+.image-list_div img {
+  display: block;
+}
+
+.image-list_depiction {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(47, 48, 58, 0.8);
+  color: var(--contrast-color);
+  width: 100%;
+  height: 70px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .image-panel h2,
 .persons-panel h2,
 .our-clients h2 {
@@ -267,7 +309,8 @@ body {
   border-radius: 50%;
   fill: #afb1b8;
   fill: var(--svg-color);
-  transition: background-color 0.3s, fill 0.5s;
+  transition: background-color 0.25s, fill 0.25s;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
 }
 
 .person-panel-socials_border:hover,
@@ -289,7 +332,8 @@ body {
   border: solid 1px #afb1b8;
   border-radius: 4px;
   fill: var(--svg-color);
-  transition: border-color 0.3s, fill 0.3s;
+  transition: border-color 0.25s, fill 0.25s;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
 }
 .client-logo:hover,
 .client-logo:focus {
@@ -354,9 +398,9 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  --color1: var(--contrast-color);
   background-color: rgba(255, 255, 255, 0.1);
-  transition: background-color 0.5s;
+  transition: background-color 0.25s;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
   fill: var(--contrast-color);
 }
 .footer-socials_border:hover,
@@ -381,8 +425,8 @@ body {
   padding: 6px 22px;
   margin: 4px 4px;
   border-radius: 4px;
-  transition: background-color 0.5s;
-  transition: color 0.2s;
+  transition: background-color 0.25s, color 0.25s;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
 }
 .portfolio-button-section button:hover,
 .portfolio-button-section button:focus {
@@ -396,7 +440,10 @@ body {
   row-gap: 30px;
 }
 .portfolio-images li {
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.25s;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
+
+  width: 370px;
 }
 .portfolio-images li:hover,
 .portfolio-images li:focus {
@@ -406,7 +453,34 @@ body {
 .portfolio-images img {
   display: block; /*this line remove break between img and description border = 1/4standard font size*/
 }
-
+.portfolio-images_image {
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-images li:hover .portfolio-images_overlay {
+  transform: translateY(0);
+}
+.portfolio-images_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(+100%);
+  transition: transform 0.25s;
+  transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
+  padding-top: 49px;
+  padding-left: 24px;
+  padding-right: 45px;
+  display: flex;
+}
+.portfolio-images_overlay > p {
+  font-size: 18px;
+  line-height: 156%;
+  letter-spacing: 0.03em;
+  color: var(--contrast-color);
+}
 .portfolio-image-description {
   border: 1px solid #eeeeee;
   border-top: 0;
@@ -419,7 +493,7 @@ body {
   line-height: 2em;
   letter-spacing: 0.06em;
 }
-.portfolio-images p {
+.portfolio-image-description p {
   font-weight: 400;
   font-size: 16px;
   line-height: 2em;
