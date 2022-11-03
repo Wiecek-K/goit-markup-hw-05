@@ -168,13 +168,12 @@ body {
   margin: 0 auto;
 }
 .main-panel h1 {
-  padding-left: 18.75%;
-  padding-right: 18.75%;
   font-size: 44px;
   font-weight: 900;
   line-height: 1.5em;
   letter-spacing: 0.06em;
   margin-bottom: 20px;
+  max-width: 696px;
 }
 .main-button {
   background-color: var(--brand-color);
@@ -230,6 +229,7 @@ body {
 }
 .image-list_div {
   position: relative;
+  margin-bottom: 15px;
 }
 .image-list_div img {
   display: block;
@@ -523,7 +523,8 @@ body {
   transition-timing-function: ease-out;
 }
 .is-hidden .backdrop {
-  opacity: 0;
+  /* opacity: 0; */
+  visibility: hidden;
   transition-delay: 0.2s;
 }
 .modal {
