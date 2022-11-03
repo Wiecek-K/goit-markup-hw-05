@@ -514,12 +514,17 @@ body {
   align-items: center;
 }
 .is-hidden {
-  opacity: 0;
-  visibility: hidden;
+  /* visibility: hidden; */
   pointer-events: none;
 }
 .is-hidden .modal {
-  transform: scale(0.1);
+  transform: scale(0);
+  transition: transform 0.2s;
+  transition-timing-function: ease-out;
+}
+.is-hidden .backdrop {
+  opacity: 0;
+  transition-delay: 0.2s;
 }
 .modal {
   position: absolute;
